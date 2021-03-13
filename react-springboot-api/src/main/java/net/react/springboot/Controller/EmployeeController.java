@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
 import net.react.springboot.exception.IllegalArgumentException;
 import net.react.springboot.exception.ResourceNotFoundException;
 import net.react.springboot.model.Employee;
@@ -31,6 +32,7 @@ public class EmployeeController {
 	private EmployeeRepository employeeRepository;
 
 	// get all Employees Rest API
+	@Operation(summary = "Get List of all Employees")
 	@GetMapping(value = "/employeesList")
 	public List<Employee> getEmployeesList() {
 		
@@ -38,6 +40,7 @@ public class EmployeeController {
 	}
 
 	// Create / Add a new employee REST API
+	@Operation(summary = "Create / add a new employee")
 	@PostMapping(value = "/employeesList")
 	public Employee addEmployee(@RequestBody Employee employee) throws IllegalArgumentException {
 		if(StringUtils.hasText(employee.getFirstName()) && StringUtils.hasText(employee.getLastName()) && StringUtils.hasText(employee.getEmailId())) {
@@ -49,6 +52,7 @@ public class EmployeeController {
 	}
 
 	// Get Employee by id rest api
+	@Operation(summary = "Get Employee by id rest api")
 	@GetMapping("/employeesList/{id}")
 	public ResponseEntity<Employee> getEmpById(@PathVariable Long id) {
 
@@ -58,6 +62,7 @@ public class EmployeeController {
 	}
 	
 	//update Employee rest api
+	@Operation(summary = "update Employee rest api")
 	@PutMapping("/employeesList/{id}")
 	public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
 		Employee dbEmployee = this.employeeRepository.findById(id)
@@ -75,7 +80,7 @@ public class EmployeeController {
 		return ResponseEntity.ok(this.employeeRepository.save(dbEmployee));
 	}
 	
-	//delete Employee rest api
+	@Operation(summary = "delete Employee rest api")
 	@DeleteMapping("/employeesList/{empId}")
 	public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long empId){
 		Employee dbEmployee = this.employeeRepository.findById(empId)
