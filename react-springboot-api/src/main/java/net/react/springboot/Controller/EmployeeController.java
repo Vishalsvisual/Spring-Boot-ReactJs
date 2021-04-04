@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -34,9 +37,10 @@ public class EmployeeController {
 	// get all Employees Rest API
 	@Operation(summary = "Get List of all Employees")
 	@GetMapping(value = "/employeesList")
-	public List<Employee> getEmployeesList() {
+	public List<Employee> getEmployeesList(@RequestParam int skip, @RequestParam int limit) {
 		
-		return this.employeeRepository.findAll();
+		final PageRequest request = PageRequest.of(skip, limit, Sort.Direction.ASC, "firstName");
+		return this.employeeRepository.findAll(request).toList();
 	}
 
 	// Create / Add a new employee REST API

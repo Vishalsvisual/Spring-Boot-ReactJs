@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Trash2, PencilSquare, PersonPlusFill, EyeFill } from 'react-bootstrap-icons';
+import MUIDataTable from 'mui-datatables';
 import EmployeeService from '../services/EmployeeService';
 
 export default class ListEmployeeComponent extends Component {
@@ -40,6 +41,43 @@ export default class ListEmployeeComponent extends Component {
         });
     };
     render() {
+
+        const columns = [
+            {
+             name: "firstName",
+             label: "First Name",
+             options: {
+              filter: true,
+              sort: true,
+             }
+            },
+            {
+             name: "lastName",
+             label: "Last Name",
+             options: {
+              filter: true,
+              sort: false,
+             }
+            },
+            {
+             name: "emailId",
+             label: "Email ID",
+             options: {
+              filter: true,
+              sort: false,
+             }
+            },
+            {
+             name: "",
+             label: "Action",
+             options: {
+              filter: true,
+              sort: false,
+             }
+            },
+           ];
+           
+           const data = this.state.employees;
         return (
             <div>
                 <h2 className="text-center">Employees List :</h2>
@@ -47,7 +85,12 @@ export default class ListEmployeeComponent extends Component {
                     <button className="btn btn-success btn-sm row-btn mb-1" onClick={this.addEmployee}><PersonPlusFill /> Add</button>
                 </div>
                 <br/>
-                <div className="row">
+                <MUIDataTable
+                    title={"Employee List"}
+                    data={data}
+                    columns={columns}
+                />
+                {/* <div className="row">
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -82,7 +125,7 @@ export default class ListEmployeeComponent extends Component {
                             </tr>
                         </tfoot>
                     </table>
-                </div>
+                </div> */}
             </div>
         )
     }

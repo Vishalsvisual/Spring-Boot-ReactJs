@@ -5,7 +5,7 @@ const EMPLOYEE_API_BASE_URL = "http://localhost:8080/api/v1/employeesList";
 
 class EmployeeService {
     getEmployees() {
-       return axios.get(EMPLOYEE_API_BASE_URL);
+       return axios.get(`${EMPLOYEE_API_BASE_URL}?skip=0&limit=100`);
     }
 
     createEmployee(empObj){
