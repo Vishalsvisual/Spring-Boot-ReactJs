@@ -37,7 +37,7 @@ export default class ListEmployeeComponent extends Component {
 
     componentDidMount() {
         EmployeeService.getEmployees().then((res) => {
-            this.setState({ employees: res["data"] })
+            this.setState({ employees: res["data"] });
         });
     };
     render() {
@@ -47,35 +47,47 @@ export default class ListEmployeeComponent extends Component {
              name: "firstName",
              label: "First Name",
              options: {
-              filter: true,
-              sort: true,
+                filter: true,
+                sort: true,
              }
             },
             {
              name: "lastName",
              label: "Last Name",
              options: {
-              filter: true,
-              sort: false,
+                filter: true,
+                sort: true,
              }
             },
             {
              name: "emailId",
              label: "Email ID",
              options: {
-              filter: true,
-              sort: false,
+                filter: false,
+                sort: true,
              }
             },
             {
-             name: "",
+             name: "id",
              label: "Action",
              options: {
-              filter: true,
-              sort: false,
+                filter: false,
+                sort:false,
+                customBodyRender: (value, tableMeta, updateValue) => (
+                    <span>
+                        <button onClick={() => this.deleteEmployee(value)} className="row-btn delete-btn"><Trash2 size={15} /></button>
+                        <button onClick={() => this.editEmployee(value)} className="row-btn edit-btn"><PencilSquare size={13} /></button>
+                        <button onClick={() => this.viewEmployee(value)} className="row-btn view-btn"><EyeFill size={15} /></button>
+                    </span>
+                )
              }
             },
            ];
+
+        const options = {
+            filter: true,
+            responsive: 'standard',
+        };
            
            const data = this.state.employees;
         return (
