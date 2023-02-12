@@ -1,4 +1,4 @@
-package net.react.springboot.Controller;
+package net.react.springboot.controller;
 
 import java.util.HashMap;
 import java.util.List;
