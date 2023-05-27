@@ -1,16 +1,8 @@
 package net.react.springboot.model;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "employees")

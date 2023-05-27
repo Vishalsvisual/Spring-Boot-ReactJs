@@ -14,7 +14,7 @@ public @interface Migration {
     /**
      * The id for a migration is an arbitrary identifier for a migration. 
      */
-    public String id();
+    String id();
     
     /**
      * The context is an arbitrary string value used to group migrations together. All
@@ -22,26 +22,26 @@ public @interface Migration {
      * order. The order of execution of contexts is undefined, so migrations with dependencies
      * on each other should always be part of the same context.
      */
-    public String context();
+    String context();
 
     /**
      * Sequence determines the ordering of migrations within a given context, lower
      * numbers being executed first.
      */
-    public int sequence();
+    int sequence();
 
     /**
      * @return The name of the method to call to run the migration. The method must be public and take no parameters
      * and must throw an exception if there is an error in processing.
      */
-    public String executeMethod() default "execute";
+    String executeMethod() default "execute";
     
     /**
      * Should the migration be run on every application startup. Defaults to false.
      * 
      * @return True if the migration should be run every time the application starts, false otherwise.
      */
-    public boolean runAlways() default false;
+    boolean runAlways() default false;
     
     /**
      * Should the migration be re-run if it has changed since the last time it ran.
@@ -49,7 +49,7 @@ public @interface Migration {
      * 
      * @return True if the migration should be re-run when changed, false otherwise.
      */
-    public boolean runOnChange() default true;
+    boolean runOnChange() default true;
     
     /**
      * Whether or not an error in the migration should cause it to fail and stop migration processing. 
@@ -57,10 +57,10 @@ public @interface Migration {
      * 
      * @return True if an error should stop processing, false otherwise.
      */
-    public boolean failOnError() default true;
+    boolean failOnError() default true;
     
     /**
      * @return The author of the migration - defaults to 'Unknown'.
      */
-    public String author() default "Unknown";
+    String author() default "Unknown";
 }
