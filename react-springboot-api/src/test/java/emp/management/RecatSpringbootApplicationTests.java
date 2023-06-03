@@ -1,4 +1,4 @@
-package net.react.springboot;
+package emp.management;
 
 //@SpringBootTest
 class RecatSpringbootApplicationTests {

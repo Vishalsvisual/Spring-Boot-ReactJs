@@ -1,4 +1,4 @@
-package net.react.springboot.config;
+package emp.management.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
