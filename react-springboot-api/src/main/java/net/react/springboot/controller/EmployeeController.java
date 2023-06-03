@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -36,6 +37,7 @@ public class EmployeeController {
 
 	// get all Employees Rest API
 	@Operation(summary = "Get List of all Employees")
+	@SecurityRequirement(name = "JWT")
 	@GetMapping(value = "/employeesList")
 	public List<Employee> getEmployeesList(@RequestParam int skip, @RequestParam int limit) {
 		
