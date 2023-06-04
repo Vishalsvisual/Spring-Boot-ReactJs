@@ -27,6 +27,7 @@
 	<properties>
 		<java.version>17</java.version>
 		<lombok.version>1.18.28</lombok.version>
+		<logbook.version>3.0.0</logbook.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -84,7 +85,18 @@
 		<dependency>
 			<groupId>org.zalando</groupId>
 			<artifactId>logbook-spring-boot-starter</artifactId>
-			<version>3.0.0</version>
+			<version>${logbook.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zalando</groupId>
+			<artifactId>logbook-netty</artifactId>
+			<version>${logbook.version}</version>
+		</dependency>
+		<!-- making config dynamic	-->
+		<dependency>
+			<groupId>io.micronaut</groupId>
+			<artifactId>micronaut-management</artifactId>
+			<version>4.0.0-M6</version>
 		</dependency>
 	</dependencies>
 
