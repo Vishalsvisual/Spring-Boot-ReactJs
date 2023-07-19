@@ -1,7 +1,7 @@
 package emp.management.migration.impl;
 
 import emp.management.migration.Migration;
-import emp.management.model.Employee;
+import emp.management.entity.Employee;
 import emp.management.repository.EmployeeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

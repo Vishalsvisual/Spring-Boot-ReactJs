@@ -98,6 +98,11 @@
 			<artifactId>micronaut-management</artifactId>
 			<version>4.0.0-M6</version>
 		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>3.1.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

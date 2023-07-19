@@ -1,4 +1,4 @@
-package emp.management.model;
+package emp.management.enums;
 
 public enum Gender {
 	
