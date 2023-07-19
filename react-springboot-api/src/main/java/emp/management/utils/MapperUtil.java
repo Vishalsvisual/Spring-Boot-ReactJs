@@ -18,4 +18,8 @@ public class MapperUtil {
                 .map(element -> mapper.map(element, targetClass))
                 .toList();
     }
+
+    public <S, T> T map(S source, Class<T> targetClass) {
+        return mapper.map(source, targetClass);
+    }
 }

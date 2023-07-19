@@ -7,7 +7,6 @@ import emp.management.exception.ResourceNotFoundException;
 import emp.management.repository.EmployeeRepository;
 import emp.management.service.IService;
 import emp.management.utils.MapperUtil;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -23,9 +22,6 @@ public class EmployeeService implements IService<EmployeeDto> {
 
     @Autowired
     private EmployeeRepository repository;
-
-    @Autowired
-    private ModelMapper mapper;
 
     @Autowired
     private MapperUtil mapperUtil;
@@ -44,8 +40,8 @@ public class EmployeeService implements IService<EmployeeDto> {
         if (StringUtils.hasText(dto.getFirstName()) && StringUtils.hasText(dto.getLastName())
                 && StringUtils.hasText(dto.getEmailId())) {
             dto.setEmailId(StringUtils.trimAllWhitespace(dto.getEmailId()));
-            Employee emp = this.mapper.map(dto, Employee.class);
-            return this.mapper.map(this.repository.save(emp), EmployeeDto.class);
+            Employee emp = this.mapperUtil.map(dto, Employee.class);
+            return this.mapperUtil.map(this.repository.save(emp), EmployeeDto.class);
         } else {
             throw (new IllegalArgumentException("Not all mandatory fields can be empty."));
         }
@@ -56,7 +52,7 @@ public class EmployeeService implements IService<EmployeeDto> {
 
         Employee employee = this.repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(EMP_NOT_EXIST_ID + id));
-        return this.mapper.map(employee, EmployeeDto.class);
+        return this.mapperUtil.map(employee, EmployeeDto.class);
     }
 
     @Override
@@ -74,7 +70,7 @@ public class EmployeeService implements IService<EmployeeDto> {
         if (StringUtils.hasText(dto.getEmailId())) {
             dbEmployee.setEmailId(dto.getEmailId());
         }
-        return this.mapper.map(this.repository.save(dbEmployee), EmployeeDto.class);
+        return this.mapperUtil.map(this.repository.save(dbEmployee), EmployeeDto.class);
     }
 
     @Override
