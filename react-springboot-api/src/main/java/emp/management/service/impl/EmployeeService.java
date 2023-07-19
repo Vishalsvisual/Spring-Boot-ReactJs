@@ -3,7 +3,7 @@ package emp.management.service.impl;
 import emp.management.dto.EmployeeDto;
 import emp.management.entity.Employee;
 import emp.management.exception.IllegalArgumentException;
-import emp.management.exception.ResourceNotFound;
+import emp.management.exception.ResourceNotFoundException;
 import emp.management.repository.EmployeeRepository;
 import emp.management.service.IService;
 import emp.management.utils.MapperUtil;
@@ -51,7 +51,7 @@ public class EmployeeService implements IService<EmployeeDto> {
     public EmployeeDto getById(Long id) {
 
         Employee employee = this.repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFound(EMP_NOT_EXIST_ID + id));
+                .orElseThrow(() -> new ResourceNotFoundException(EMP_NOT_EXIST_ID + id));
         return this.mapperUtil.map(employee, EmployeeDto.class);
     }
 
@@ -59,7 +59,7 @@ public class EmployeeService implements IService<EmployeeDto> {
     public EmployeeDto updateById(Long id, EmployeeDto dto) {
 
         Employee dbEmployee = this.repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFound(EMP_NOT_EXIST_ID + id));
+                .orElseThrow(() -> new ResourceNotFoundException(EMP_NOT_EXIST_ID + id));
 
         if (StringUtils.hasText(dto.getFirstName())) {
             dbEmployee.setFirstName(dto.getFirstName());
@@ -76,7 +76,7 @@ public class EmployeeService implements IService<EmployeeDto> {
     @Override
     public void deleteById(Long id) {
         Employee dbEmployee = this.repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFound(EMP_NOT_EXIST_ID + id));
+                .orElseThrow(() -> new ResourceNotFoundException(EMP_NOT_EXIST_ID + id));
 
         this.repository.delete(dbEmployee);
     }
