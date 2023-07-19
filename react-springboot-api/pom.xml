@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>net.react</groupId>
-	<artifactId>recat-springboot</artifactId>
+	<artifactId>react-springboot</artifactId>
 	<version>1.0.3-RELEASE</version>
 	<name>react-spring-boot</name>
 	<description>CRUD App Using React SpringBoot</description>
