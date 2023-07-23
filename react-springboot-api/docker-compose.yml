@@ -1,0 +1,50 @@
+#version: '3.1'
+#services:
+#  app:
+#    image: 'emp-management-service-image:latest'
+#    build:
+#      #      context: src
+#      context: ../.
+#      dockerfile: DockerFile
+#  #      container_name: emp-management-service-app
+#    depends_on:
+#          - database
+#
+#  database:
+#    image: 'postgres:15.2'
+#    container_name: postgres-db
+#    ports:
+#      - '5432:5432'
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=postgres
+#      - 'POSTGRES_DB=employees'
+
+version: '3.3'
+
+services:
+  database:
+    container_name: postgres-db
+    image: 'postgres:15.2'
+    restart: always
+    environment:
+          - 'POSTGRES_USER=postgres'
+          - 'POSTGRES_PASSWORD=postgres'
+          - 'POSTGRES_DB=employees'
+    ports:
+          - '5432:5432'
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    links:
+      - database
+    environment:
+      - 'SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/employees?useSSL=false'
+      - 'SPRING_DATASOURCE_USERNAME=postgres'
+      - 'SPRING_DATASOURCE_PASSWORD=postgres'
+      - 'SPRING_JPA_HIBERNATE_DDL_AUTO=update'
