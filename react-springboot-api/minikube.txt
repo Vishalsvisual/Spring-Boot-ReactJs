@@ -1,0 +1,38 @@
+cd ${user.home}\Desktop\Devlopment\14-05\Spring-Boot-ReactJs\react-springboot-api
+
+minikube dashboard
+minikube config unset vm-driver
+minikube config set driver hyperv
+minikube start --driver=hyperv
+minikube delete
+minikube docker-env
+minikube image load my_image
+minikube image build -t my_image
+
+
+
+
+
+
+
+
+
+kubectl run react-springboot-api-app --image=react-springboot-api-app:latest \ --port=8080 --image-pull-policy Never
+kubectl logs react-springboot-api-app
+kubectl get pods
+kubectl get deployments
+kubectl get services
+kubectl get all
+kubectl apply -f .\postgres-credentials.yml
+kubectl get secrets
+kubectl get configmaps
+kubectl delete -n default pod emp-management-service-app-76f64d465c-m8kq9
+kubectl delete -n default service emp-management-service-app
+kubectl delete -n default deployment emp-management-service-app
+
+
+
+
+docker load
+docker images
+docker save -o react-springboot-api-app.tar react-springboot-api-app
