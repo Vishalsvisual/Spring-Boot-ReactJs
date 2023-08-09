@@ -1,6 +1,5 @@
-package emp.management.dto;
+package emp.management.payload;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

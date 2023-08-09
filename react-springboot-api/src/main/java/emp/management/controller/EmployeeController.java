@@ -1,6 +1,6 @@
 package emp.management.controller;
 
-import emp.management.dto.EmployeeDto;
+import emp.management.payload.EmployeeDto;
 import emp.management.exception.IllegalArgumentException;
 import emp.management.service.impl.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;

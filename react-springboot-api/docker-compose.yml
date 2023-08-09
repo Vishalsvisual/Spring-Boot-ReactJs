@@ -23,9 +23,9 @@
 version: '3.3'
 
 services:
-  database:
+  postgres-db:
     container_name: postgres-db
-    image: 'postgres:15.2'
+    image: 'postgres:latest'
     restart: always
     environment:
           - 'POSTGRES_USER=postgres'
@@ -40,9 +40,9 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - database
+      - postgres-db
     links:
-      - database
+      - postgres-db
     environment:
       - 'SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/employees?useSSL=false'
       - 'SPRING_DATASOURCE_USERNAME=postgres'

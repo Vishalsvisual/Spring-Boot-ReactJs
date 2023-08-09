@@ -1,6 +1,6 @@
 package emp.management.service.impl;
 
-import emp.management.dto.EmployeeDto;
+import emp.management.payload.EmployeeDto;
 import emp.management.entity.Employee;
 import emp.management.exception.IllegalArgumentException;
 import emp.management.exception.ResourceNotFoundException;

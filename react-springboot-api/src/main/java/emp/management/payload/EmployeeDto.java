@@ -1,7 +1,7 @@
-package emp.management.dto;
+package emp.management.payload;
 
 import emp.management.enums.Gender;
-import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +19,7 @@ public class EmployeeDto {
 
     private String lastName;
 
+    @Email
     private String emailId;
 
     private Date birthDate;

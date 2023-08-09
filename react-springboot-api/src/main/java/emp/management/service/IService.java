@@ -1,6 +1,6 @@
 package emp.management.service;
 
-import emp.management.dto.EmployeeDto;
+import emp.management.payload.EmployeeDto;
 import emp.management.exception.IllegalArgumentException;
 
 import java.util.List;
