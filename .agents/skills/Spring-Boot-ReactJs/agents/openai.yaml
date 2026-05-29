@@ -1,0 +1,6 @@
+interface:
+  display_name: "Spring Boot ReactJs"
+  short_description: "Repo-specific patterns and workflows for Spring-Boot-ReactJs"
+  default_prompt: "Use the Spring-Boot-ReactJs repo skill to follow existing architecture, testing, and workflow conventions."
+policy:
+  allow_implicit_invocation: true

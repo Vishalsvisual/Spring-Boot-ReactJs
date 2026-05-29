@@ -1,0 +1,251 @@
+# Instincts generated from https://github.com/Vishalsvisual/Spring-Boot-ReactJs
+# Generated: 2026-05-29T02:27:55.354Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: Spring-Boot-ReactJs-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/Vishalsvisual/Spring-Boot-ReactJs
+---
+
+# Spring Boot ReactJs Commit Length
+
+## Action
+
+Write moderate-length commit messages (~66 characters)
+
+## Evidence
+
+- Average commit message length: 66 chars
+- Based on 3 commits
+
+---
+id: Spring-Boot-ReactJs-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Vishalsvisual/Spring-Boot-ReactJs
+---
+
+# Spring Boot ReactJs Naming Files
+
+## Action
+
+Use PascalCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: PascalCase
+
+---
+id: Spring-Boot-ReactJs-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Vishalsvisual/Spring-Boot-ReactJs
+---
+
+# Spring Boot ReactJs Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: Spring-Boot-ReactJs-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Vishalsvisual/Spring-Boot-ReactJs
+---
+
+# Spring Boot ReactJs Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: Spring-Boot-ReactJs-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/Vishalsvisual/Spring-Boot-ReactJs
+---
+
+# Spring Boot ReactJs Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: Spring-Boot-ReactJs-workflow-add-or-update-service-layer-with-exception-handling
+trigger: "when doing add or update service layer with exception handling"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Vishalsvisual/Spring-Boot-ReactJs
+---
+
+# Spring Boot ReactJs Workflow Add Or Update Service Layer With Exception Handling
+
+## Action
+
+Follow the add-or-update-service-layer-with-exception-handling workflow:
+1. Edit or create service implementation file in service/impl (e.g., EmployeeService.java)
+2. Edit or create exception classes (e.g., ErrorDetails.java, ResourceNotFound.java, ErrorResponse.java, ResourceNotFoundException.java)
+3. Edit or update GlobalExceptionHandler.java to handle new or updated exceptions
+4. Optionally update utility classes (e.g., MapperUtil.java)
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: react-springboot-api/src/main/java/emp/management/service/impl/*.java, react-springboot-api/src/main/java/emp/management/exception/*.java, react-springboot-api/src/main/java/emp/management/utils/MapperUtil.java
+
+---
+id: spring-boot-reactjs-instinct-naming-conventions
+trigger: "When creating or renaming files, classes, functions, or constants in Java code"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Vishalsvisual/Spring-Boot-ReactJs
+---
+
+# Spring Boot Reactjs Instinct Naming Conventions
+
+## Action
+
+Use PascalCase for files and classes, camelCase for functions, and SCREAMING_SNAKE_CASE for constants
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions
+- Consistent naming in service/impl and exception classes
+
+---
+id: spring-boot-reactjs-instinct-import-style
+trigger: "When importing Java classes within the project"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Vishalsvisual/Spring-Boot-ReactJs
+---
+
+# Spring Boot Reactjs Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+- Observed in example files under react-springboot-api/src/main/java
+
+---
+id: spring-boot-reactjs-instinct-export-style
+trigger: "When exporting Java classes or methods"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Vishalsvisual/Spring-Boot-ReactJs
+---
+
+# Spring Boot Reactjs Instinct Export Style
+
+## Action
+
+Use named exports (public classes/methods)
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+- Java language conventions
+
+---
+id: spring-boot-reactjs-instinct-testing-location
+trigger: "When adding or updating tests"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: Vishalsvisual/Spring-Boot-ReactJs
+---
+
+# Spring Boot Reactjs Instinct Testing Location
+
+## Action
+
+Place test files in a separate test directory, not mixed with source files
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation: 'separate'
+
+---
+id: spring-boot-reactjs-instinct-git-commit-format
+trigger: "When writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: Vishalsvisual/Spring-Boot-ReactJs
+---
+
+# Spring Boot Reactjs Instinct Git Commit Format
+
+## Action
+
+Use a freeform message, optionally starting with the date and a brief description of the change
+
+## Evidence
+
+- Examples: '19-April-2023, Committed to add service layer and conversation service'
+- Pattern in commits.examples
+
+---
+id: spring-boot-reactjs-instinct-add-or-update-service-layer-with-exception-handling
+trigger: "When implementing or modifying a service and ensuring proper exception handling"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: Vishalsvisual/Spring-Boot-ReactJs
+---
+
+# Spring Boot Reactjs Instinct Add Or Update Service Layer With Exception Handling
+
+## Action
+
+Edit or create service implementation in service/impl, update or add exception classes, update GlobalExceptionHandler, and optionally update utility classes like MapperUtil
+
+## Evidence
+
+- Workflow: add-or-update-service-layer-with-exception-handling
+- Files involved: service/impl/*.java, exception/*.java, utils/MapperUtil.java
+- Commit examples and workflow steps
+
